@@ -1,0 +1,31 @@
+#Assigment No.04 Day 5 
+
+Write down all the operators present in python covered in class.And a brief description about them?
+-->
+There are four types of operators covered in the class they are:
+1.Arithmetic operators
+2.Comparison operators
+3.Assignment Operators
+4.Logical Operators
+
+1.Arithmetic operators:This operators is used to perform arithmetic operation between two operands.
+Just like Addition,substraction, divide, multiplication, reminder, Exponent.
+
+e.g a+b , a-b ,a*b, a/b, a%b, **
+
+2.Comparison operators:This operators are used to comparing the value of the two operands and returns Boolean true or false accordingly.
+Just like eual to , greater than equal to, less than equal to, Greater than, Less than.
+==, !=, <=, >=, <, >
+e.g a==b , a!=b, a>=b, a<=b.
+
+3.Assignment Operators:This operators are used to assign the value of the right expression to the left operand.
+Just like =, +=, -=, *=, %=, **=, //=
+e.g a=b, a+=b, a-=b, a*=b.
+
+4.Logical Operators:This logical operators are used primarily in the expression evaluation to make a decision and return boolean true and false accordingly.
+Just like and(&&) , OR(||), Not(~)
+e.g a=10 , b=50
+((a==b)and(a<b)OR(a>=b)
+(False and True)OR False
+False OR False
+False
