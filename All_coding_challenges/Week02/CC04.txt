@@ -1,0 +1,44 @@
+#Coding Challenges 04 #
+
+Q1.Write a program to check if the no is even or odd ?
+1.Program :
+num = 22
+if num % 2 == 0:
+    print("Even Number")
+else:
+    print("Odd Number")
+Output:
+Even Number
+
+2.Program
+num = int(input("Enter a number: "))
+  
+if (num % 2) == 0: 
+ 
+   print("{0} is Even number".format(num))
+  
+else:  
+
+   print("{0} is Odd number".format(num)) 
+Output: 
+Enter a number:  4
+4 is Even number
+
+Explanation : I have Created one variable name as num and assigned some value in program one if the taking condition for even and odd number if the number is even or else odd.
+
+
+Q2.What will be the output of it .
+a = 2
+b = 7
+((3 == 4) and (a < b)) or ( b == 7)
+a) True
+b) False
+-->True
+
+Q3.What will be the output of the following.
+A = 10
+B = 50
+(not (A == B) and not(B == A)) or (A != 10)
+a) True
+b) False
+-->True
