@@ -1,0 +1,69 @@
+Coding Challenges 05 :
+
+Q1.Write the calculator program which will take input from users two numbers
+And will ask them to type
+0 for addition
+1 for subtraction
+2 for multiplication
+3 for division
+And will print the result
+-->
+num1 = int(input("Enter First Number: "))
+num2 = int(input("Enter Second Number: "))
+
+print("Enter which operation would you like to perform?")
+ch = input("Enter any of these char for specific operation +(0),-(1),*(2),/(3): ")
+
+if ch == '0':
+    result = num1 + num2
+elif ch == '1':
+    result = num1 - num2
+elif ch == '2':
+    result = num1 * num2
+elif ch == '3':
+    result = num1 / num2
+else:
+    print("Input character is not recognized!")
+
+print(result)
+
+Output:
+Enter First Number: 3
+Enter Second Number: 5
+Enter which operation would you like to perform?
+Enter any of these char for specific operation +(0),-(1),*(2),/(3): 0
+8
+
+Q2.Explain range in python with various examples.
+-->
+The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number.
+ 
+Syntax :range(start, stop, step)
+
+start :An integer number specifying at which position to start. Default is 0
+stop  :An integer number specifying at which position to stop (not included).
+step  :An integer number specifying the incrementation. Default is 1
+
+Example:
+1.x = range(3, 20, 2)
+for n in x:
+  print(n)
+-->
+3
+5
+7
+9
+11
+13
+15
+17
+19
+2.range(10, 3, -4)
+--> 
+10
+6
+
+Q3.What will be the result of
+int(6.6) + int(4.9) = ?
+--> int (6) + int (4) = 10
+
