@@ -4,9 +4,9 @@ Q 1.Write a program to check if a no is even or odd. If its even print even else
 -->
 a = 10
 if a % 2 == 0:
- print(even)
+ print("even")
 else:
- print(Odd)
+ print("Odd")
 Output:even.
 
 Step to follow:
