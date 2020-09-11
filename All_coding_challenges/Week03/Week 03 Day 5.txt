@@ -1,0 +1,39 @@
+Coding Challenges Week03 Day 05
+
+Q1.The factorial (symbol: !) means to multiply all whole numbers from our chosen number down
+to 1.
+-->
+Program:
+num = 5
+
+# To take input from the user
+#num = int(input("Enter a number: "))
+
+factorial = 1
+
+# check if the number is negative, positive or zero
+if num < 0:
+   print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+   print("The factorial of 0 is 1")
+else:
+   for i in range(1,num + 1):
+       factorial = factorial*i
+   print("The factorial of",num,"is",factorial
+Output:
+The factorial of 5 is 120.
+
+Q2.Write a Python program that accepts a word from the user and
+reverse it.
+
+-->
+Program:
+word = input("Input a word to reverse: ")
+
+for char in range(len(word) - 1, -1, -1):
+  print(word[char], end="")
+print("\n")
+Output:
+Input a word to reverse:ilapid
+dipali
+
