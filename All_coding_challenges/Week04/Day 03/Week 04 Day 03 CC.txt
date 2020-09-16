@@ -1,0 +1,39 @@
+Week 04 Day 03 CC
+
+Q1.Write a Python program to sum all the items in a list.
+Eg [1,2,3,4] = 10
+-->
+# Python program to find sum of items in list 
+total = 0
+  
+# creating a list 
+list1 = [1, 2, 3, 4]  
+  
+# Iterate each items in list 
+# and add them in variale total 
+for ele in range(0, len(list1)): 
+    total = total + list1[ele] 
+  
+# printing total value 
+print("Sum of all items in given list: ", total)
+
+Output:
+Sum of all items in given list:10
+
+Q2.Write a Python program to get the largest number from a list.
+[1,2,33,4] = largest is 33
+-->
+# creating function
+def max_num_in_list( list ):
+    max = list[ 0 ]
+    for a in list:
+        if a > max:
+            max = a
+    return max
+    # printing the largest element
+print("The largest number in list is:", end="")
+print(max_num_in_list([1, 2, 33, 4]))
+
+Output:
+The largest number in list is:33
+
