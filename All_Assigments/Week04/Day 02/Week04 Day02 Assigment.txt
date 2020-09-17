@@ -1,0 +1,56 @@
+Week 04 Day 02 Assigments
+
+Q1.Write a Python function that accepts a string and calculate the number of
+upper case letters and lower case letters.
+Sample String : 'The quick Brow Fox'
+Expected Output :
+No. of Upper case characters : 3
+No. of Lower case Characters : 12
+-->
+s = "The quick Brow Fox'"
+l,u = 0,0
+for i in s: 
+    if (i>='a'and i<='z'): 
+        l=l+1                  #counting lower case 
+    if (i>='A'and i<='Z'): 
+        u=u+1                  #counting upper case 
+print('No. of Upper case characters: ',u) 
+print('No. of Lower case Characters: ',l)
+
+Output:
+No. of Upper case characters: 3
+No. of Lower case Characters: 12
+
+Q2.Write a Python function that takes a number as a parameter and check the
+number is prime or not.
+Note : A prime number (or a prime) is a natural number greater than 1 and that
+has no positive divisors other than 1 and itself.
+-->
+def test_prime(n):
+    if (n==1):
+        return False
+    elif (n==2):
+        return True;
+    else:
+        for x in range(2,n):
+            if(n % x==0):
+                return False
+        return True             
+print(test_prime(9))
+
+Output:
+False
+
+Q3.Write a program which counts the no of vowels in a string
+-->
+string=input("Enter string:")
+vowels=0
+for i in string:
+      if(i=='a' or i=='e' or i=='i' or i=='o' or i=='u' or i=='A' or i=='E' or i=='I' or i=='O' or i=='U'):
+            vowels=vowels+1
+print("Number of vowels are:", end="")
+print(vowels)
+
+Output:
+Enter string:Hello world
+Number of vowels are:3
