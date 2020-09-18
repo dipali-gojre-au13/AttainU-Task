@@ -1,0 +1,53 @@
+Week 04 Day 05 CC
+
+Q1.Write a Python program to combine two dictionary adding values for common
+keys. d1 = {'a': 100, 'b': 200, 'c':300} d2 = {'a': 300, 'b': 200, 'd':400} Sample
+output: Counter({'a': 400, 'b': 400, 'd': 400, 'c': 300})
+-->
+from collections import Counter
+d1 = {'a': 100, 'b': 200, 'c':300}
+d2 = {'a': 300, 'b': 200, 'd':400}
+d = Counter(d1) + Counter(d2)
+print(d)
+
+Output:
+Counter({'b': 400, 'd': 400, 'a': 400, 'c': 300}) 
+
+
+Q2.Take integer inputs from user until he/she presses q ( Ask to press q to quit after
+every integer input ). Print average and product of all numbers.
+-->
+i=0
+a=100
+n=0
+while i <= a:
+    print('Enter the input')
+    user_input=str(input())
+    if user_input!='q':
+        n=n+int(user_input)
+        print('Enter to continue or q to quit')
+        i=i+1
+    else:
+        print('You have chosen to quit')
+        break
+avg=n/i
+print("total time the user entered the value is : %d " %i)
+print("Average : %d" %avg)
+print("product of all the number : %d" %n)
+
+Output:
+Enter the input
+10
+Enter to continue or q to quit
+Enter the input
+10
+Enter to continue or q to quit
+Enter the input
+20
+Enter to continue or q to quit
+Enter the input
+q
+You have chosen to quit
+total time the user entered the value is : 3 
+Average : 13
+product of all the number : 40
