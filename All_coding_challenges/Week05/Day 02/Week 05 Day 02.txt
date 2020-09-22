@@ -35,28 +35,3 @@ False
 Q2.Model a real life School in python code which can contain students batches subjects.
 Use classes for Q2
 -->
-class school:
-
-# batch = {"b1":"English", "b2":"Math", "b3":"Science", "b4":"History"}
-# print("All batches per subject")
-# for x, y in batch.items():
-#   print(x,y)
- def __init__(self, batch, subject):
-  self.student_name = (input("Enter student name:"))
-  self.subject = (input("Enter your subject name"))
-batch = {"b1":"English", "b2":"Math", "b3":"Science", "b4":"History"}
-if "Math" in batch:
-  print("you are in b2 batch")
-elif "English" in batch:
-  print("you are in b1 batch")
-elif "Science" in batch:
-  print("you are in b3 batch")
-elif "History" in batch:
-  print("you are in b4 batch")
-else:
-  print("you are not in batch")
-
-if __name__ == '__main__':
- s1 = school()
- s1.student_name
- s1.subject
