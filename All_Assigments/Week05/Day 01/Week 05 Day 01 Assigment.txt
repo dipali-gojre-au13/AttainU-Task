@@ -1,0 +1,143 @@
+Week 05 Day 01 Assigment
+
+q1.Given an integer, , and  space-separated integers as input, create a tuple, , of those  integers. Then compute and print the result of .
+-->
+if __name__ == '__main__':
+    n = int(input())
+    # integer_list = map(int, input().split(''))
+    t = tuple(map(int, input().split()))
+    print(hash(t))
+
+input:
+2
+1 2
+
+Output:
+3713081631934410656
+
+Q2.You are given a string and your task is to swap cases. In other words, convert all lowercase letters to uppercase letters and vice versa.
+
+-->
+def swap_case(s):
+    input_list = list(s)
+    return "".join(i.lower() if i in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" else i.upper() for i in input_list)
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
+
+Input:
+HackerRank.com presents "Pythonist 2".
+
+Output:
+hACKERrANK.COM PRESENTS "pYTHONIST 2".
+
+Q3.>>> a = "this is a string"
+>>> a = a.split(" ") # a is converted to a list of strings. 
+>>> print a
+['this', 'is', 'a', 'string']
+Joining a string is simple:
+
+>>> a = "-".join(a)
+>>> print a
+this-is-a-string 
+
+-->
+def split_and_join(line):
+    # write your code here
+    line=line.split(" ")
+    line='-'.join(line)
+    return line
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
+
+input:
+
+this is a string   
+
+Output:
+
+this-is-a-string
+
+Q4.You are given the firstname and lastname of a person on two different lines. Your task is to read them and print the following:
+
+Hello firstname lastname! You just delved into python.
+
+-->
+def print_full_name(a, b):
+    print("Hello " + a, b + "! You just delved into python.")
+
+if __name__ == '__main__':
+    first_name = input()
+    last_name = input()
+    print_full_name(first_name, last_name)
+
+Input:
+Ross
+Taylor
+
+Output:
+Hello Ross Taylor! You just delved into python.
+
+Q5.In this challenge, the user enters a string and a substring. You have to print the number of times that the substring occurs in the given string. String traversal will take place from left to right, not from right to left.
+-->
+def count_substring(string, sub_string):
+    # Find a string in Python 
+    count = 0
+    for i in range(len(string)-len(sub_string)+1):
+        if (string[i:i+len(sub_string)] == sub_string):
+            count += 1
+    return count
+
+if __name__ == '__main__':
+    string = input().strip()
+    sub_string = input().strip()
+    
+    count = count_substring(string, sub_string)
+    print(count)
+
+Input:
+
+ABCDCDC
+CDC
+
+Output:
+
+2
+
+Q6.You are asked to ensure that the first and last names of people begin with a capital letter in their passports. For example, alison heck should be capitalised correctly as Alison Heck.
+alison heck --> Alison Heck
+
+Given a full name, your task is to capitalize the name appropriately.
+-->
+def solve(s):
+    # words = s.split(" ")
+    # capitalized_words = [w.capitalize() for w in words]
+    # return " ".join(capitalized_words)
+    for i in s.split():
+        s = s.replace(i,i.capitalize())
+    return s
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = solve(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+Input:
+
+hello world
+
+Output:
+
+Hello World
+
+
