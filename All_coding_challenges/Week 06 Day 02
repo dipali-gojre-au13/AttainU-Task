@@ -1,0 +1,32 @@
+Week 06 Day 02 CC
+
+Q1.Given a matrix print the all the vertical columns
+1 2 3 4
+5 6 7 8
+9 10 11 12
+
+-->
+test_list = [[1, 2, 3, 4],
+            [5, 6, 7, 8], 
+            [9, 10, 11, 12]];
+  
+# printing original list 
+# print ("The original list is : " + str(test_list)) 
+  
+# using zip()  
+# to print list vertically 
+for x, y, z in zip(*test_list):
+  print("Column", x,":", end="") 
+  print(x, y, z) 
+
+Output:
+Column 1:1 5 9
+Column 2: 2 6 10
+Column 3: 3 7 11
+Column 4: 4 8 12
+
+Q2.Question 2. Given a matrix print the all the horizontal rows
+1 2 3 4
+5 6 7 8
+9 10 11 12
+-->
