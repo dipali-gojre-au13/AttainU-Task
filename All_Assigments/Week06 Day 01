@@ -1,0 +1,86 @@
+Q1.How Many Numbers Are Smaller Than the Current Number
+-->
+class Solution:
+    def smallerNumbersThanCurrent(self, nums):
+        l=len(nums)
+        ans=[]
+        count=0
+        for i in nums:
+            for j in range(l):
+               if (nums[j]-i)<0:
+                   count+=1
+            ans.append(count)
+            count=0
+        return ans
+
+#  define main() function.
+def main():
+    num =[8,1,2,2,3]
+smallerNumbersThanCurrent(self, nums)
+if __name__ == "__main__":
+    main()class Solution:
+    def smallerNumbersThanCurrent(self, nums):
+        l=len(nums)
+        ans=[]
+        count=0
+        for i in nums:
+            for j in range(l):
+               if (nums[j]-i)<0:
+                   count+=1
+            ans.append(count)
+            count=0
+        return ans
+    smallerNumbersThanCurrent(self, nums)
+#  define main() function.
+def main():
+    num =[8,1,2,2,3]
+
+    #taking input from console.
+    # create matrix using numpy function arange() in sequential order.
+if __name__ == "__main__":
+    main()
+    a=Solution()
+
+  
+  Q2.Matrix Diagonal Sum
+  -->
+  import numpy as np
+# create a class 
+class diagnoal_sum:
+    # create function
+    def sum_diagonal( self,a, r,c):
+        # check whether a given a row and column is valid or not.
+        if  c==0 and r==0:
+            return print("Enter valid matrix ,Matrix should be (n x n) format")    
+    
+# we use diagonal() function used to return specified diagonal elements.
+        print("diagonal elements are :",a.diagonal())
+# we use trace() function used to Sum along diagonals.
+        result =  np.trace(a)
+        print("sum of diagonals Elements :",result)
+     
+
+#  define main() function.
+def main():
+    digsum=diagnoal_sum()
+    #taking input from console.
+    row,col=input("enter row and column :").split()
+    r=int(row)
+    c=int(col)
+    # create matrix using numpy function arange() in sequential order.
+    a=np.arange(r*c).reshape(r,c)
+    print("Original matrix :\n", a)
+    #call function to execute .
+    digsum.sum_diagonal(a,r,c)
+if __name__ == "__main__":
+    main()
+   
+    Output:
+    enter row and column : 3 3
+    Original matrix :
+    [0 1 2]
+    [3 4 5]
+    [6 7 8]
+    diagonal elements are :[0 4 8]
+    sum of diagonals Elements :12
+    
