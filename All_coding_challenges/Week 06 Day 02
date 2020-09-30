@@ -10,23 +10,56 @@ test_list = [[1, 2, 3, 4],
             [5, 6, 7, 8], 
             [9, 10, 11, 12]];
   
-# printing original list 
-# print ("The original list is : " + str(test_list)) 
-  
-# using zip()  
-# to print list vertically 
-for x, y, z in zip(*test_list):
-  print("Column", x,":", end="") 
-  print(x, y, z) 
+test_list = [[1, 2, 3, 4],
+            [5, 6, 7, 8], 
+            [9, 10, 11, 12]];
+
+def printcolum(test_list):
+   for k in range (len(test_list[0])):
+     res = [j[k] for j in test_list] 
+     print(f'Col {k+1}: ', *res)
+printcolum(test_list)
 
 Output:
-Column 1:1 5 9
-Column 2: 2 6 10
-Column 3: 3 7 11
-Column 4: 4 8 12
+Col 1:1 5 9
+Col 2: 2 6 10
+Col 3: 3 7 11
+Col 4: 4 8 12
 
 Q2.Question 2. Given a matrix print the all the horizontal rows
 1 2 3 4
 5 6 7 8
 9 10 11 12
 -->
+test_list = [[1, 2, 3, 4],
+            [5, 6, 7, 8], 
+            [9, 10, 11, 12]];
+
+def printrow(test_list):
+   for k in range (len(test_list)):
+     res = [j[k] for j in test_list] 
+     print(f'Row {k+1}: ', *test_list[k])
+printrow(test_list)
+
+Output:
+Row 1:1 2 3 4
+Row 2 :5 6 7 8
+Row 3:9 10 11 12
+
+Q3.Given a square matrix print all the anti diagnol elements 
+1 2 3 4 
+5 6 7 8 
+9 10 11 12 
+1 2 3 4
+-->
+def printdiagonal(test_list):
+  k=len(test_list) - 1
+  for i in range(len(test_list)):
+    # for j in range(len(test_list[0])):
+    #  if ((i+j) == len(test_list)- 1):
+      print(test_list[i][k], end=" " )
+      k -=1
+printdiagonal(test_list)
+
+Output:
+47 10 1
