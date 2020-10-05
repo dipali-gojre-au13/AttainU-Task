@@ -1,0 +1,100 @@
+Week 07 Day 01 CC
+
+Q1.Implement int sqrt(int x).
+
+Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
+
+Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
+
+Example 1:
+
+Input: 4
+Output: 2
+-->
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        start = 0
+        end = x
+        
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            
+            if mid * mid == x:
+                return mid
+            elif mid * mid < x:
+                start = mid
+            else:
+                end = mid
+        
+        if end * end == x:
+            return end
+        
+        return start
+
+or
+                        
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        start = 0
+        end = x
+        
+        while start + 1 < end:
+            mid = start + (end - start) // 2
+            
+            if mid * mid == x:
+                return mid
+            elif mid * mid < x:
+                start = mid
+            else:
+                end = mid
+        
+        if end * end == x:
+            return end
+        
+        return start
+
+if __name__=="__main__":
+    s = Solution()
+    print(s.mySqrt(4))
+
+Output:
+
+Input: 4
+Output:2
+
+Q2.Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+
+(i.e.,  [0,1,2,4,5,6,7] might become  [4,5,6,7,0,1,2]).
+
+Find the minimum element.
+
+You may assume no duplicate exists in the array.
+
+Example 1:
+
+Input: [3,4,5,1,2] 
+Output: 1
+
+-->
+class Solution:
+    def findMin(self, nums):
+        min_value = nums[0]
+        for i in range(len(nums)):
+            if nums[i] < min_value:
+                min_value = nums[i]
+        return min_value
+
+if __name__=="__main__":
+    s = Solution()
+    print(s.findMin([3,4,5,1,2] ))
+
+Or
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        min_value = nums[0]
+        for i in range(len(nums)):
+            if nums[i] < min_value:
+                min_value = nums[i]
+        return min_value
+
+Output:  1
