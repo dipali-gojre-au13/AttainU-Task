@@ -1,0 +1,79 @@
+Week 07 Day 02 CC
+
+Q1. Reverse a string using recurssion
+-->
+def reverse(string):
+    if len(string) == 0:
+        return string
+    else:
+        return reverse(string[1:]) + string[0]
+a = str(input("Enter the string to be reversed: "))
+print("Reverse string is:", reverse(a))
+
+Output:
+Enter the string to be reversed: Attainu
+Reverse string is:uniattA
+
+
+OR
+
+def reverse_string(str):  
+    str1 = ""   # Declaring empty string to store the reversed string  
+    for i in str:  
+        str1 = i + str1  
+    return str1    # It will return the reverse string to the caller function  
+     
+str = "JavaTpoint"    # Given String       
+print("The original string is: ",str)  
+print("The reverse string is",reverse_string(str)) # Function call
+
+Output:
+('The original string is: ', 'JavaTpoint')
+('The reverse string is', 'tniopTavaJ')
+
+Q2.calculate factorial using recursion python
+-->
+def recur_factorial(n):
+   if n == 1:
+       return n
+   else:
+       return n*recur_factorial(n-1)
+
+num = 7
+
+# check if the number is negative
+if num < 0:
+   print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+   print("The factorial of 0 is 1")
+else:
+   print("The factorial of", num, "is", recur_factorial(num))
+
+Output:
+The factorial of 7 is 5040
+
+Q3.Write a program to calculate the power of a number using recursion in O(Log(n))
+complexity
+-->
+def power(x, y): 
+    if y==0: 
+        return 1
+    n = power(x, y // 2)  
+    if y % 2 == 0: 
+        return n * n 
+    else: 
+        if y > 0: 
+            return x * n * n 
+        else: 
+            return (n * n) / x 
+
+# main code
+if __name__ == '__main__':
+    x = 2 #base
+    y = 3  #power
+    result = power(x, y)
+    print(x," to the power ", y, " is: ", result)
+
+Output:
+2 to the power 3 is: 8
+
