@@ -1,0 +1,236 @@
+Week 05 Day 03 Assigment
+
+Q1. Explain OOPS principles with code examples to demonstrate them
+-->
+Principles of OOP
+Object-oriented programming is based on the following principles:
+1. Encapsulation
+2. Abstraction
+3. Inheritance
+4. Polymorphism
+Encapsulation :
+The implementation and state of each object are privately held inside a defined
+boundary, or class. Other objects do not have access to this class or the
+authority to make changes but are only able to call a list of public functions, or
+methods. This characteristic of data hiding provides greater program security
+and avoids unintended data corruption.
+Example:
+Encapsulation: Restricted accesss to methods or variables
+We create a class Car which has two methods: drive() and updateSoftware().
+When a car object is created, it will call the private methods __updateSoftware().
+This function cannot be called on the object directly, only from within the class.
+class Car:
+ def __init__(self):
+ self.__updateSoftware()
+ def drive(self):
+ print('driving')
+ def __updateSoftware(self):
+ print('updating software')
+redcar = Car()
+redcar.drive()
+Encapsulation
+#redcar.__updateSoftware() not accesible from object.
+This program will output:
+updating software
+driving
+Encapsulation prevents from accessing accidentally, but not intentionally.
+Abstraction:
+Objects only reveal internal mechanisms that are relevant for the use of other
+objects, hiding any unnecessary implementation code. This concept helps
+developers more easily make changes and additions over time.
+Oops concepts
+Example:
+class Polygon(ABC):
+# abstract method
+def noofsides(self):
+pass
+class Triangle(Polygon):
+# overriding abstract method
+def noofsides(self):
+print("I have 3 sides")
+class Pentagon(Polygon):
+# overriding abstract method
+def noofsides(self):
+print("I have 5 sides")
+class Hexagon(Polygon):
+# overriding abstract method
+def noofsides(self):
+print("I have 6 sides")
+class Quadrilateral(Polygon):
+# overriding abstract method
+def noofsides(self):
+print("I have 4 sides")
+R = Triangle()
+R.noofsides()
+Abstraction
+K = Quadrilateral()
+K.noofsides()
+R = Pentagon()
+R.noofsides()
+K = Hexagon()
+K.noofsides()
+Output:
+I have 3 sides
+I have 4 sides
+I have 5 sides
+I have 6 sides
+Inheritance :
+Relationships and subclasses between objects can be assigned, allowing
+developers to reuse a common logic while still maintaining a unique hierarchy.
+This property of OOP forces a more thorough data analysis, reduces
+development time and ensures a higher level of accuracy.
+Example:
+class User:
+ name = ""
+
+ def __init__(self, name):
+ self.name = name
+ def printName(self):
+ print("Name = " + self.name)
+class Programmer(User):
+ def __init__(self, name):
+ self.name = name
+ def doPython(self):
+ print("Programming Python")
+brian = User("brian")
+brian.printName()
+diana = Programmer("Diana")
+diana.printName()
+diana.doPython()
+Inheritance
+output:
+Name = brian
+Name = Diana
+Programming Python
+Brian is an instance of User and can only access the method printName. Diana
+is an instance of Programmer, a class with inheritance from User, and can
+access both the methods in Programmer and User.
+Polymorphism :
+Objects can take on more than one form depending on the context. The
+program will determine which meaning or usage is necessary for each
+execution of that object, cutting down the need to duplicate code.
+Example:
+class Car:
+ def __init__(self, name):
+ self.name = name
+
+ def drive(self):
+ raise NotImplementedError("Subclass must implement abstract method")
+ def stop(self):
+ raise NotImplementedError("Subclass must implement abstract method")
+
+class Sportscar(Car):
+ def drive(self):
+ return 'Sportscar driving!'
+ def stop(self):
+ return 'Sportscar braking!'
+
+class Truck(Car):
+ def drive(self):
+ return 'Truck driving slowly because heavily loaded.'
+ def stop(self):
+ return 'Truck braking!'
+for car in cars:
+ print car.name + ': ' + car.drive()
+Polymorphism
+cars = [Truck('Bananatruck'),
+Truck('Orangetruck'),
+Sportscar('Z3')]
+Output:
+Bananatruck: Truck driving slowly because heavily loaded.
+Orangetruck: Truck driving slowly because heavily loaded.
+Z3: Sportscar driving!
+
+Q2. You are required to enter a word that consists of  and  that denote the number of Zs and Os respectively. The input word is considered similar to word zoo if .2 * x = y
+
+Determine if the entered word is similar to word zoo.
+
+For example, words such as zzoooo and zzzoooooo are similar to word zoo but not the words such as zzooo and zzzooooo.
+
+Input format
+
+First line: A word that starts with several Zs and continues by several Os.
+Note: The maximum length of this word must be .20
+-->
+name = input() 
+# Write your code here
+x = 0
+y = 0
+# countZ = 0, countO = 0
+for i in range(len(name)):
+  # print(name[i])
+  if name[i] == 'z':
+    x=x+1
+  elif name[i]=='o':
+    y=y+1
+end = 2 * x
+if end == y:
+        print("Yes")
+else:
+        print("No")
+
+Output:
+
+zzzoooooo
+Yes
+
+
+Q3.You have been given a String S. You need to find and print whether this string is a palindrome or not. If yes, print "YES" (without quotes), else print "NO" (without quotes).
+-->
+string=input(("Enter a string:"))
+if(string==string[::-1]):
+      print("Yes")
+else:
+      print("No")
+
+Output:
+Enter a string: aba
+Yes
+
+Q4.You have been given a positive integer N. You need to find and print the Factorial of this number. The Factorial of a positive integer N refers to the product of all number in the range from 1 to N. You can read more about the factorial of a number here.
+
+Input Format:
+-->
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+n=int(input("Enter the num:"))
+print("The factorial of num is:", factorial(n))
+
+Output:
+Enter the num: 2
+The factorial of num is : 2
+
+Q5. You have been given a String S consisting of uppercase and lowercase English alphabets. You need to change the case of each alphabet in this String. That is, all the uppercase letters should be converted to lowercase and all the lowercase letters should be converted to uppercase. You need to then print the resultant String to output.
+-->
+def convertOpposite(str): 
+    ln = len(str) 
+  
+    # Conversion according to ASCII values 
+    for i in range(ln): 
+        if str[i] >= 'a' and str[i] <= 'z': 
+  
+            # Convert lowercase to uppercase 
+            str[i] = chr(ord(str[i]) - 32) 
+  
+        elif str[i] >= 'A' and str[i] <= 'Z': 
+  
+            # Convert lowercase to uppercase 
+            str[i] = chr(ord(str[i]) + 32) 
+  
+# Driver code 
+if __name__ == "__main__": 
+    str = input("Enter the string:")
+    str = list(str) 
+  
+    # Calling the Function 
+    convertOpposite(str) 
+  
+    str = ''.join(str) 
+    print(str) 
+
+Output:
+Enter the string: abcdE
+ABCDe

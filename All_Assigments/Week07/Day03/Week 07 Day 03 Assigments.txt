@@ -1,0 +1,79 @@
+Week 07 Day 03 Assigments
+
+Q1.
+Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+Example 1:
+
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+
+Output:
+class Solution():
+    def generateParenthesis(self, n):
+        ans = []
+        def gen(o, c, s):
+            if o > c:
+                 return
+            if o == 0 and c == 0:
+                ans.append(s)
+                return
+            if o == 0:
+                gen(o, c-1, s+')')
+            else:
+                gen(o-1, c, s+'(')
+                gen(o, c-1, s+')')
+        gen(n,n,'')
+        return ans
+        
+ Output:
+["((()))","(()())","(())()","()(())","()()()"]
+
+Q2.Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
+Example 1:
+Input: "Hello"
+Output: "hello"
+-->
+class Solution:
+    def toLowerCase(self, str):
+        newWord = 'Hello'
+        
+        for letter in newWord:
+            if 65 <= ord(letter) <= 91:
+                newWord = chr(ord(letter) + 32)
+            else:
+                newWord += letter
+        return newWord
+
+Output:
+hello
+
+Q3.Balanced strings are those who have equal quantity of 'L' and 'R' characters.
+
+Given a balanced string s split it in the maximum amount of balanced strings.
+
+Return the maximum amount of splitted balanced strings.
+
+Example 1:
+
+Input: s = "RLRRLLRLRL"
+Output: 4
+Explanation: s can be split into "RL", "RRLL", "RL", "RL", each substring contains same number of 'L' and 'R'.
+
+-->
+class Solution:
+    def balancedStringSplit(self, s: str) -> int:
+        balancer  = 0 
+        counter = 0   
+        for i in range(len(s)): 
+            if s[i] == 'L': 
+                balancer += 1
+            else:             
+                balancer -= 1
+            
+            if balancer == 0:  
+                counter += 1
+    
+        return counter 
+
+Output:
+4

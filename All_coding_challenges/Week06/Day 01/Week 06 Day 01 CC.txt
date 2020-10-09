@@ -1,0 +1,53 @@
+Week 06 Day 01 CC
+
+Q1.Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+Example 1:
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Output: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Solve the above problem with all the three approaches and comment on their time complexity
+1. Bruteforce
+2. Two pointer
+3. Dictionary
+
+-->
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dictionary = {}
+        answer = []
+        
+        for i in range(len(nums)):
+            secondNumber = target-nums[i]
+            if(secondNumber in dictionary.keys()):
+                secondIndex = nums.index(secondNumber)
+                if(i != secondIndex):
+                    return sorted([i, secondIndex])
+                
+            dictionary.update({nums[i]: i})
+
+
+The Brute-force solution:
+The first way you could go about solving this challenge is likely the way that most people come up with when they first see the problem. This solution’s pseudocode looks something like this:
+
+for each number X in list of numbers:
+    for each number Y in list of numbers starting from X:
+        if X+Y equal target number, return indices
+
+The time complexity of O(n^2)
+
+The Dictionary Solution:
+instantiate an empty dictionary
+for each number in list of numbers:
+    result = subtract number from target number
+    look for result in the dictionary (instant lookup)
+    if found:
+        return index of number and index of dictionary lookup result
+    else:
+        add number to dictionary as key with value being the index
+Switching the way of thinking from the “number1 + number2 = target” to “target - number1 = number2” was at first not too easy, but doing so allowed not only for the use of the Key Value Map but also requires only one iteration of the number list, meaning a worst case run time of O(n) which is significantly better than the O(n²) from the Brute Force approach.
