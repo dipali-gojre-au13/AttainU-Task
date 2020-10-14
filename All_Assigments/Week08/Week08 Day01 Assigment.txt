@@ -1,0 +1,230 @@
+Week 08 Day 01 Assignment
+
+
+Q1.Implement Bubble Sort, Insertion Sort and Merge Sort, Selection Sort and comment
+about the differences in them
+-->
+Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
+def bubbleSort(arr): 
+    n = len(arr) 
+  
+    # Traverse through all array elements 
+    for i in range(n-1): 
+    # range(n) also work but outer loop will repeat one time more than needed. 
+  
+        # Last i elements are already in place 
+        for j in range(0, n-i-1): 
+  
+            # traverse the array from 0 to n-i-1 
+            # Swap if the element found is greater 
+            # than the next element 
+            if arr[j] > arr[j+1] : 
+                arr[j], arr[j+1] = arr[j+1], arr[j] 
+  
+# Driver code to test above 
+arr = [64, 34, 25, 12, 22, 11, 90] 
+  
+bubbleSort(arr) 
+  
+print ("Sorted array is:") 
+for i in range(len(arr)): 
+    print ("%d" %arr[i]),  def bubbleSort(arr): 
+    n = len(arr) 
+
+Output:
+Sorted array is:
+11
+12
+22
+25
+34
+64
+90
+
+Selection Sort:
+Selection sort selects i-th smallest element and places at i-th position. This algorithm divides the array into two parts: sorted (left) and unsorted (right) subarray. It selects the smallest element from unsorted subarray and places in the first position of that subarray (ascending order). It repeatedly selects the next smallest element. 
+A = [64, 25, 12, 22, 11] 
+  
+# Traverse through all array elements 
+for i in range(len(A)): 
+      
+    # Find the minimum element in remaining  
+    # unsorted array 
+    min_idx = i 
+    for j in range(i+1, len(A)): 
+        if A[min_idx] > A[j]: 
+            min_idx = j 
+              
+    # Swap the found minimum element with  
+    # the first element         
+    A[i], A[min_idx] = A[min_idx], A[i] 
+  
+# Driver code to test above 
+print ("Sorted array") 
+for i in range(len(A)): 
+    print(A[i])
+
+Output:
+
+Sorted array
+11 12 22 25 64
+
+Insertion Sort:
+Insertion Sort is a simple comparison based sorting algorithm. It inserts every array element into its proper position. In i-th iteration, previous (i-1) elements (i.e. subarray Arr[1:(i-1)]) are already sorted, and the i-th element (Arr[i]) is inserted into its proper place in the previously sorted subarray. 
+def insertionSort(arr): 
+  
+    # Traverse through 1 to len(arr) 
+    for i in range(1, len(arr)): 
+  
+        key = arr[i] 
+  
+        # Move elements of arr[0..i-1], that are 
+        # greater than key, to one position ahead 
+        # of their current position 
+        j = i-1
+        while j >=0 and key < arr[j] : 
+                arr[j+1] = arr[j] 
+                j -= 1
+        arr[j+1] = key 
+  
+  
+# Driver code to test above 
+arr = [12, 11, 13, 5, 6] 
+insertionSort(arr) 
+print ("Sorted array is:") 
+for i in range(len(arr)): 
+    print ("%d" %arr[i]) 
+  
+# This code is contributed by Mohit Kumra 
+Output:
+
+Sorted array is:
+5
+6
+11
+12
+13
+
+Merge Sort:
+Merge Sort is a Divide and Conquer algorithm. It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves. The merge() function is used for merging two halves. The merge(arr, l, m, r) is key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
+
+Program:
+def merge(arr, l, m, r): 
+    n1 = m - l + 1
+    n2 = r- m 
+  
+    # create temp arrays 
+    L = [0] * (n1) 
+    R = [0] * (n2) 
+  
+    # Copy data to temp arrays L[] and R[] 
+    for i in range(0 , n1): 
+        L[i] = arr[l + i] 
+  
+    for j in range(0 , n2): 
+        R[j] = arr[m + 1 + j] 
+  
+    # Merge the temp arrays back into arr[l..r] 
+    i = 0     # Initial index of first subarray 
+    j = 0     # Initial index of second subarray 
+    k = l     # Initial index of merged subarray 
+  
+    while i < n1 and j < n2 : 
+        if L[i] <= R[j]: 
+            arr[k] = L[i] 
+            i += 1
+        else: 
+            arr[k] = R[j] 
+            j += 1
+        k += 1
+  
+    # Copy the remaining elements of L[], if there 
+    # are any 
+    while i < n1: 
+        arr[k] = L[i] 
+        i += 1
+        k += 1
+  
+    # Copy the remaining elements of R[], if there 
+    # are any 
+    while j < n2: 
+        arr[k] = R[j] 
+        j += 1
+        k += 1
+  
+# l is for left index and r is right index of the 
+# sub-array of arr to be sorted 
+def mergeSort(arr,l,r): 
+    if l < r: 
+  
+        # Same as (l+r)//2, but avoids overflow for 
+        # large l and h 
+        m = (l+(r-1))//2
+  
+        # Sort first and second halves 
+        mergeSort(arr, l, m) 
+        mergeSort(arr, m+1, r) 
+        merge(arr, l, m, r) 
+  
+  
+# Driver code to test above 
+arr = [12, 11, 13, 5, 6, 7] 
+n = len(arr) 
+print ("Given array is") 
+for i in range(n): 
+    print ("%d" %arr[i]), 
+  
+mergeSort(arr,0,n-1) 
+print ("\n\nSorted array is") 
+for i in range(n): 
+    print ("%d" %arr[i]), 
+  
+# This code is contributed by Mohit Kumra 
+Output:
+
+Given array is
+12 11 13 5 6 7 
+
+Sorted array is
+5 6 7 11 12 13
+
+Q2.Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+-->
+
+# Function to group anagrams together from given
+# list of words
+def groupAnagrams(words):
+
+	# sort each word in the list
+	A = [''.join(sorted(word)) for word in words]
+
+	# construct a dictionary where key is each sorted word
+	# and value is list of indices where it is present
+	dict = {}
+	for i, e in enumerate(A):
+		dict.setdefault(e, []).append(i)
+
+	# traverse the dictionary and read indices for each sorted key.
+	# The anagrams are present in actual list at those indices
+	for index in dict.values():
+		print([words[i] for i in index])
+
+
+# Group anagrams together from given list of words
+if __name__ == '__main__':
+
+	# list of words
+	words = ["eat","tea","tan","ate","nat","bat"]
+	groupAnagrams(words)
+
+Output:
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+Q2.
+
+
+
+
+
