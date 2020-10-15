@@ -135,3 +135,30 @@ Output:
 
 Input: s = "()"
 Output: true
+
+
+Time complexity: O(N).
+Space complexity: O(N). 
+
+Or
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        
+        stack = []
+        
+        for char in s:
+            if char == '(' or char == '[' or char == '{':
+                stack.append(char)
+            else:
+                if len(stack) == 0 or (not self.valid_pair(stack[-1], char)):
+                    return False
+                left = stack.pop()
+                                                
+        return len(stack) == 0
+    
+    def valid_pair(self, left, right):        
+        return (left == '(' and right == ')' ) or (left == '[' and right == ']' ) or (left == '{' and right == '}')
+
+Input: s = "()"
+Output: true
