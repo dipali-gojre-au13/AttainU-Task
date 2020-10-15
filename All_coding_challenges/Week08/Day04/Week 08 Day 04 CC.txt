@@ -1,0 +1,137 @@
+week 08 Day 04 CC
+
+Q1. You are given a stack and you need to sort it.
+
+-->
+def sortStack ( stack ): 
+    tmpStack = createStack() 
+    while(isEmpty(stack) == False): 
+          
+        # pop out the first element 
+        tmp = top(stack) 
+        pop(stack) 
+  
+        # while temporary stack is not 
+        # empty and top of stack is 
+        # greater than temp 
+        while(isEmpty(tmpStack) == False and
+             int(top(tmpStack)) > int(tmp)): 
+              
+            # pop from temporary stack and 
+            # push it to the input stack 
+            push(stack,top(tmpStack)) 
+            pop(tmpStack) 
+  
+        # push temp in tempory of stack 
+        push(tmpStack,tmp) 
+      
+    return tmpStack 
+  
+# Below is a complete running  
+# program for testing above 
+# function. 
+  
+# Function to create a stack.  
+# It initializes size of stack 
+# as 0 
+def createStack(): 
+    stack = [] 
+    return stack 
+  
+# Function to check if  
+# the stack is empty 
+def isEmpty( stack ): 
+    return len(stack) == 0
+  
+# Function to push an  
+# item to stack 
+def push( stack, item ): 
+    stack.append( item ) 
+  
+# Function to get top  
+# item of stack 
+def top( stack ): 
+    p = len(stack) 
+    return stack[p-1] 
+  
+# Function to pop an  
+# item from stack 
+def pop( stack ): 
+  
+    # If stack is empty 
+    # then error 
+    if(isEmpty( stack )): 
+        print("Stack Underflow ") 
+        exit(1) 
+  
+    return stack.pop() 
+  
+# Function to print the stack 
+def prints(stack): 
+    for i in range(len(stack)-1, -1, -1): 
+        print(stack[i], end = ' ') 
+    print() 
+  
+# Driver Code 
+stack = createStack() 
+push( stack, str(34) ) 
+push( stack, str(3) ) 
+push( stack, str(31) ) 
+push( stack, str(98) ) 
+push( stack, str(92) ) 
+push( stack, str(23) ) 
+  
+print("Sorted numbers are: ") 
+sortedst = sortStack ( stack ) 
+prints(sortedst) 
+
+Output:
+
+Sorted numbers are:
+98 92 34 31 23 3
+
+Q2. Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+
+Input: s = "()"
+Output: true
+-->
+class Solution:
+    def isValid(self, s):
+        # The stack to keep track of opening brackets.
+        stack = []
+
+        # Hash map for keeping track of mappings. This keeps the code very clean.
+        # Also makes adding more types of parenthesis easier
+        mapping = {")": "(", "}": "{", "]": "["}
+
+        # For every bracket in the expression.
+        for char in s:
+
+            # If the character is an closing bracket
+            if char in mapping:
+
+                # Pop the topmost element from the stack, if it is non empty
+                # Otherwise assign a dummy value of '#' to the top_element variable
+                top_element = stack.pop() if stack else '#'
+
+                # The mapping for the opening bracket in our hash and the top
+                # element of the stack don't match, return False
+                if mapping[char] != top_element:
+                    return False
+            else:
+                # We have an opening bracket, simply push it onto the stack.
+                stack.append(char)
+
+        # In the end, if the stack is empty, then we have a valid expression.
+        # The stack won't be empty for cases like ((()
+        return not stack   
+
+Output:
+
+Input: s = "()"
+Output: true
