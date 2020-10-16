@@ -1,0 +1,114 @@
+Week 08 Day 05 CC
+
+# Next Greater Element
+Q1.You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+
+The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
+Example 1:
+Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+Output: [-1,3,-1]
+Explanation:
+    For number 4 in the first array, you cannot find the next greater number for it in the second array, so output -1.
+    For number 1 in the first array, the next greater number for it in the second array is 3.
+    For number 2 in the first array, there is no next greater number for it in the second array, so output -1.
+-->
+
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        stack=[]
+        d={}
+        ans=[]
+        for i in range(len(nums2)-1,-1,-1):
+            if not stack: # for last elm 
+                d[nums2[i]]=-1
+            elif stack and stack[-1]>nums2[i]: #if there is elm greater in right side
+                d[nums2[i]]=stack[-1]
+            elif stack and stack[-1]<nums2[i]:
+                while stack and stack[-1]<=nums2[i]:
+                    stack.pop()
+                if stack:
+                    d[nums2[i]]=stack[-1] # if there is no element greater in right side
+                elif not stack:
+                    d[nums2[i]]=-1
+            
+            stack.append(nums2[i])
+            
+        for elm in nums1:
+            ans.append(d[elm])
+        return ans
+
+Output:
+
+Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+Output: [-1,3,-1]
+
+
+Another Way :
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        hash_map = dict()
+        stack = nums2[0:1]
+        
+        for num in nums2[1:]:
+            while stack and stack[-1] < num:
+                hash_map[stack.pop()] = num
+            stack.append(num)
+        return [hash_map.get(num, -1) for num in nums1]
+
+
+Q2.Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) -- Push element x onto stack.
+pop() -- Removes the element on top of the stack.
+top() -- Get the top element.
+getMin() -- Retrieve the minimum element in the stack.
+Example 1:
+
+Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+
+Output
+[null,null,null,null,-3,null,0,-2]
+-->
+class MinStack:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.minstack = []
+        self.stack = []
+
+    def push(self, x: int) -> None:
+        self.stack.append(x)
+        if len(self.minstack) == 0 or x < self.minstack[-1]:
+            self.minstack.append(x)
+        else:
+            self.minstack.append(self.minstack[-1])
+
+    def pop(self) -> None:
+        self.stack.pop(-1)
+        self.minstack.pop(-1)
+
+    def top(self) -> int:
+        return self.stack[-1]
+
+    def getMin(self) -> int:
+        return self.minstack[-1]
+
+
+# /# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(x)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
+
+Output:
+Input
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+
+Output
+[null,null,null,null,-3,null,0,-2]
