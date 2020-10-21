@@ -1,0 +1,115 @@
+Week 09 Day 01 Assignment
+
+Q1.Queue using two Stacks 
+Implement a Queue using 2 stacks s1 and s2 .
+A Query Q is of 2 Types
+(i) 1 x (a query of this type means  pushing 'x' into the queue)
+(ii) 2   (a query of this type means to pop element from queue and print the poped element)
+
+Example 1:
+
+Input:
+5
+1 2 1 3 2 1 4 2
+
+Output: 
+2 3
+-->
+def Push(x,stack1,stack2):
+    stack1.append(x)
+    
+
+def Pop(stack1,stack2):
+    try:
+        return stack1.pop(0)
+    except:
+        return -1
+
+
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+#contributed by RavinderSinghPB
+if __name__ == '__main__':
+    test_cases = int(input())
+    for cases in range(test_cases):
+        qry=int(input())
+        qtyp_qry=list(map(int, input().strip().split()))
+        
+        i=0
+        stack1=[]
+        stack2=[]
+        while i <len(qtyp_qry):
+            #print(i)
+            if qtyp_qry[i]==1:
+                Push(qtyp_qry[i+1],stack1,stack2)
+                #print(i)
+                i+=2
+            else:
+                print(Pop(stack1,stack2),end=' ')
+                i+=1
+                
+        print()
+# } Driver Code Ends
+
+Output:
+
+Input:
+5
+1 2 1 3 2 1 4 2
+your output is: 
+2 3 
+
+Q2.Implement Queue using array
+Implement a Queue using an Array. Queries in the Queue are of the following type:
+(i) 1 x   (a query of this type means  pushing 'x' into the queue)
+(ii) 2     (a query of this type means to pop element from queue and print the poped element)
+
+Example 1:
+
+Input:
+Q = 5
+Queries = 1 2 1 3 2 1 4 2
+Output: 2 3
+
+-->
+class MyQueue:
+    def __init__ (self):
+        self.arr = []
+        self.maxsize = 100000
+        self.front = 0
+        self.end = 0
+        
+    def push(self, x):
+        self.arr.append(x)
+        self.end += 1
+        return
+    def pop(self):
+        if(self.size()<=0):
+            self.reset()
+            return -1
+        else:
+            x=self.arr[self.front]
+            self.front += 1
+            return x
+    def size (self):
+        return self.end - self.front
+    def reset (self):
+        self.end = 0
+        self.front = 0
+        self.arr = []
+        return
+
+
+#{ 
+#  Driver Code Starts
+#Initial Template for Python 3
+
+Output:
+For Input:
+5
+1 2 1 3 2 1 4 2
+your output is: 
+2 3 
