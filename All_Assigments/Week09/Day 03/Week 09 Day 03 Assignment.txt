@@ -1,0 +1,237 @@
+Week 09 Day 03 Assignments
+
+
+Q1. Write a program to find the node at which the intersection of two singly linked lists begins.
+
+For example, the following two linked lists:
+
+A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+begin to intersect at node c1.
+
+Notes:
+
+If the two linked lists have no intersection at all, return null.
+The linked lists must retain their original structure after the function returns.
+You may assume there are no cycles anywhere in the entire linked structure.
+Your code should preferably run in O(n) time and use only O(1) memory.
+
+-->
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        if headA == None or headB == None:
+            return None
+        
+        pa, pb = headA, headB
+        while pa!=pb:
+            if pa == None:
+                pa = headB
+            else:
+                pa = pa.next
+            
+            if pb == None:
+                pb = headA
+            else:
+                pb = pb.next
+        
+        return pa
+
+Other Way :
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+      return pa
+        curA, curB = headA, headB
+        while curA != curB:
+            curA = headB if curA is None else curA.next
+            curB = headA if curB is None else curB.next
+            
+        return curA
+
+
+Output:
+Your input
+8
+[4,1,8,4,5]
+[5,6,1,8,4,5]
+2
+3
+
+Output
+Intersected at '8'
+
+
+Q2.  83. Remove Duplicates from Sorted List
+Given a sorted linked list, delete all duplicates such that each element appear only once.
+
+Example 1:
+
+Input: 1->1->2
+Output: 1->2
+-->
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        cur = head
+        while cur:
+            if cur.next and cur.next.val == cur.val:
+                cur.next = cur.next.next
+            else:
+                cur = cur.next
+        return head
+
+Output:    [1,2]
+
+Q3. Merge Two Sorted Lists
+Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
+Example 1:
+
+          1 -> 2 -> 4
+        
+          1 -> 3 -> 4
+
+1 - > 1 -> 2 -> 3 -> 4 -> 4
+
+Input: l1 = [1,2,4], l2 = [1,3,4]
+Output: [1,1,2,3,4,4]
+-->
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+         if not l1:
+            return l2
+
+         if not l2:
+            return l1
+
+         small, large = (l1, l2) if l1.val < l2.val else (l2, l1)
+         small.next = self.mergeTwoLists(small.next, large)
+
+         return small
+
+Output:
+[1,1,2,3,4,4]
+
+Q4.Add Two Numbers
+
+Example:
+          2 -> 4 -> 3
+        
+          5 -> 6 -> 4
+
+          7 - > 0 -> 8
+          
+
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        res = ListNode()
+        
+        
+        sum = l1.val + l2.val
+        add = int(sum /10)
+        
+        res.val = sum % 10
+        if add!=0:
+            temp = ListNode(val = add)
+            res.next = temp
+        elif l1.next or l2.next:
+            temp = ListNode(val = 0)
+            res.next = temp
+        
+            
+        _l1 = l1.next
+        _l2 = l2.next
+        
+
+        while _l1 or _l2:
+            
+            sum = temp.val + (_l1.val if _l1 else 0) + (_l2.val if _l2 else 0)
+
+            add = int(sum / 10)
+            
+            temp.val = sum % 10
+            
+            
+            
+            
+            _l1 = _l1.next if _l1 else None
+            _l2 = _l2.next if _l2 else None
+            
+            if _l1 or _l2 or add!=0:
+                temp.next = ListNode(val = add)
+                temp = temp.next
+            
+        
+        return res
+
+Output: 
+
+[7,0,8]
+
+Q5. Odd Even Linked List
+Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+
+You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+
+Example 1:
+
+Input: 1->2->3->4->5->NULL
+Output: 1->3->5->2->4->NULL
+
+Constraints:
+
+The relative order inside both the even and odd groups should remain as it was in the input.
+The first node is considered odd, the second node even and so on ...
+The length of the linked list is between [0, 10^4].
+
+-->
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution:
+    def oddEvenList(self, head: ListNode) -> ListNode:
+        if not head:
+            return None
+        odd, even = head, head.next
+        eventmp = even
+        while even and even.next:
+            odd.next = even.next
+            odd = odd.next
+            even.next = odd.next
+            even = even.next
+        odd.next = eventmp
+        return head
+
+Output: [1,3,5,2,4]
