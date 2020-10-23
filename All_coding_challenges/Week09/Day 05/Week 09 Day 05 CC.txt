@@ -1,0 +1,116 @@
+
+
+Q1.Find the sum of all left leaves in a given binary tree.
+
+Example:
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+-->
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def sumOfLeftLeaves(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+        if root.left:
+            if not root.left.left and not root.left.right:
+                return root.left.val + self.sumOfLeftLeaves(root.right)
+        return self.sumOfLeftLeaves(root.left) + self.sumOfLeftLeaves(root.right)
+
+Other Way :
+
+class Node: 
+    # Constructor to create a new Node 
+    def __init__(self, key): 
+        self.key = key 
+        self.left = None
+        self.right = None
+  
+# A utility function to check if a given node is leaf or not 
+def isLeaf(node): 
+    if node is None: 
+        return False
+    if node.left is None and node.right is None: 
+        return True
+    return False
+  
+# This function return sum of all left leaves in a 
+# given binary tree 
+def leftLeavesSum(root): 
+  
+    # Initialize result 
+    res = 0
+      
+    # Update result if root is not None 
+    if root is not None: 
+  
+        # If left of root is None, then add key of 
+        # left child 
+        if isLeaf(root.left): 
+            res += root.left.key 
+        else: 
+            # Else recur for left child of root 
+            res += leftLeavesSum(root.left) 
+  
+        # Recur for right child of root and update res 
+        res += leftLeavesSum(root.right) 
+    return res 
+  
+# Driver program to test above function  
+  
+# Let us constrcut the Binary Tree shown in the above function 
+root = Node(3) 
+root.left = Node(9) 
+root.right = Node(20) 
+root.right.left = Node(15)         
+root.right.right = Node(7) 
+ 
+print("Sum of left leaves is", leftLeavesSum(root)) 
+
+Output: 24
+
+
+Q2.Height of Binary Tree 
+-->
+class Node:
+    def __init__(self, key=None, left=None, right=None):
+
+        self.key = key
+        self.left = left
+        self.right = right
+
+
+# Recursive function to calculate height of given binary tree
+def height(root):
+
+    # Base case: empty tree has height 0
+    if root is None:
+        return 0
+
+    # recur for left and right subtree and consider maximum depth
+    return 1 + max(height(root.left), height(root.right))
+
+
+if __name__ == '__main__':
+
+    root = Node(15)
+    root.left = Node(10)
+    root.right = Node(20)
+    root.left.left = Node(8)
+    root.left.right = Node(12)
+    root.right.left = Node(16)
+    root.right.right = Node(25)
+
+    print("The height of the binary tree is", height(root))
+
+Output:
+The height of the binary tree is: 3
