@@ -1,0 +1,159 @@
+Week 09 Day 05 Assignments
+
+
+Q1.Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+
+For example:
+Given binary tree [3,9,20,null,null,15,7],
+    3
+   / \
+  9  20
+    /  \
+   15   7
+return its level order traversal as:
+[
+  [3],
+  [9,20],
+  [15,7]
+]
+-->
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+def bfs(level:list):
+            temp1, temp2 = [],[]
+            if not level or not level[0]:
+                return
+            for node in level:
+                temp1.append(node.val)
+                if node.left:
+                    temp2.append(node.left)
+                if node.right:
+                    temp2.append(node.right)    
+            result.append(temp1)
+            bfs(temp2)
+
+
+Other Way:
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+class Solution:
+    # @param root, a tree node
+    # @return a list of lists of integers
+    def levelOrder(self, root):
+        if root is None:
+            return []
+        result, current = [], [root]
+        while current:
+            next_level, vals = [], []
+            for node in current:
+                vals.append(node.val)
+                if node.left:
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+            current = next_level
+            result.append(vals)
+        return result
+
+if __name__ == "__main__":
+    root = TreeNode(3)
+    root.left = TreeNode(9)
+    root.right = TreeNode(20)
+    root.right.left = TreeNode(15)
+    root.right.right = TreeNode(7)
+    result = Solution().levelOrder(root)
+    print result
+            
+        result = []
+        bfs([root])
+        return result
+#Output:
+[ [3], [9,20], [15,7] ]
+
+Q2.Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+
+Note: A leaf is a node with no children.
+
+Example:
+
+Given the below binary tree and sum = 22,
+
+      5
+     / \
+    4   8
+   /   / \
+  11  13  4
+ /  \      \
+7    2      1
+return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+-->
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def hasPathSum(self, root: TreeNode, sum: int) -> bool:
+        if not root : return False
+        
+        
+        # Did we reach a leaf and achieved what we wanted
+        if root.val == sum and not root.right and not root.left : return True
+        
+        # Keep checking 
+        return self.hasPathSum(root.left, sum-root.val) or self.hasPathSum(root.right, sum-root.val)
+Output:
+
+true
+
+Q3.Given a complete binary tree, count the number of nodes.
+
+Note:
+
+Definition of a complete binary tree from Wikipedia:
+In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.
+
+Example:
+
+Input: 
+    1
+   / \
+  2   3
+ / \  /
+4  5 6
+
+Output: 6
+
+-->
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def countNodes(self, root: TreeNode) -> int:
+        lh = 0
+        node = root;
+        while(node != None):
+            lh += 1
+            node = node.left
+        rh = 0
+        node = root
+        while(node != None):
+            rh += 1
+            node = node.right
+        if lh == rh:
+            return pow(2, lh) - 1
+        return 1 + self.countNodes(root.left) + self.countNodes(root.right)
+
+#Output: 
+6
