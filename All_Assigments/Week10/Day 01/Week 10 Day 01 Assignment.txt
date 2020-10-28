@@ -1,0 +1,100 @@
+Week 10 Day 01 Assignment
+
+Q1.Given a binary tree, determine if it is height-balanced.
+
+For this problem, a height-balanced binary tree is defined as:
+
+a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
+
+Example 1:
+
+Input: root = [3,9,20,null,null,15,7]
+Output: true
+-->
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        if self.getDepth(root) == -1:
+            return False
+        return True
+        
+    def getDepth(self,root):
+        if not root:
+            return 0
+        left = self.getDepth(root.left)
+        if left == -1:
+            return -1
+        right = self.getDepth(root.right)
+        if right == -1:
+            return -1
+        # if abs(right-left) 
+
+
+Other Way :
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        if self.TreeDepth(root) < 0:
+            return False
+        return True
+
+    def TreeDepth(self, root: TreeNode):
+        if root is None:
+            return 0
+
+        l_depth = self.TreeDepth(root.left)
+        r_depth = self.TreeDepth(root.right)
+
+        if l_depth == -1 or r_depth == -1:
+            return -1
+
+        if abs(l_depth-r_depth) < 2:
+            return max(l_depth, r_depth)+1
+        else:
+            return -1
+
+Output:
+true
+
+Q2.Validate Binary Search Tree Implement PREORDER, POSTORDER, INORDER with stacks
+-->
+Post-Order:
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        self.prev = None
+        def Postorder(root):
+            if root:
+                if not Postorder(root.left): return False
+                if self.prev and self.prev.val>=root.val: return False
+                self.prev = root
+                return Postorder(root.right)
+            return True
+        return Postorder(root)
+
+Inorder: 
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+inorder = []
+        def f(root):
+            if root:
+                f(root.left)
+                inorder.append(root.val)
+                f(root.right)
+        f(root)
+        return all([a<b for a, b in zip(inorder, inorder[1:])])
+
+Output: 
+true
+
+
