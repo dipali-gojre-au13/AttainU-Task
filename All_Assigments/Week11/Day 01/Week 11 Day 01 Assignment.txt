@@ -1,0 +1,129 @@
+
+Q. How many layers does the OSI model have? Explain how two computers send or receive data using these layers.
+-->
+#What is OSI Model?
+The OSI Model is a logical and conceptual model that defines network communication used by systems open to interconnection and communication with other systems. The Open System Interconnection (OSI Model) also defines a logical network and effectively describes computer packet transfer by using various layers of protocols.
+
+# Why of OSI Model?
+Helps you to understand communication over a network
+Troubleshooting is easier by separating functions into different network layers.
+Helps you to understand new technologies as they are developed.
+Allows you to compare primary functional relationships on various network layers.
+
+#History of OSI Model
+Here are essential landmarks from the history of OSI model:
+
+In the late 1970s, the ISO conducted a program to develop general standards and methods of networking.
+In 1973, an Experimental Packet Switched System in the UK identified the requirement for defining the higher-level protocols.
+In the year 1983, OSI model was initially intended to be a detailed specification of actual interfaces.
+In 1984, the OSI architecture was formally adopted by ISO as an international standard.
+
+
+7 Layers of the OSI Model
+OSI model is a layered server architecture system in which each layer is defined according to a specific function to perform. All these seven layers work collaboratively to transmit the data from one layer to another.
+
+The Upper Layers: It deals with application issues and mostly implemented only in software. The highest is closest to the end system user. In this layer, communication from one end-user to another begins by using the interaction between the application layer. It will process all the way to end-user.
+The Lower Layers: These layers handle activities related to data transport. The physical layer and datalink layers also implemented in software and hardware.
+Upper and Lower layers further divide network architecture into seven different layers as below
+
+Application
+Presentation
+Session
+Transport
+Network, Data-link
+Physical layers
+
+
+* Physical Layer
+The physical layer helps you to define the electrical and physical specifications of the data connection. This level establishes the relationship between a device and a physical transmission medium. The physical layer is not concerned with protocols or other such higher-layer items.
+
+Examples of hardware in the physical layer are network adapters, ethernet, repeaters, networking hubs, etc.
+
+* Data Link Layer:
+Data link layer corrects errors which can occur at the physical layer. The layer allows you to define the protocol to establish and terminates a connection between two connected network devices.
+
+It is IP address understandable layer, which helps you to define logical addressing so that any endpoint should be identified.
+
+The layer also helps you implement routing of packets through a network. It helps you to define the best path, which allows you to take data from the source to the destination.
+
+The data link layer is subdivided into two types of sublayers:
+
+Media Access Control (MAC) layer- It is responsible for controlling how device in a network gain access to medium and permits to transmit data.
+Logical link control layer- This layer is responsible for identity and encapsulating network-layer protocols and allows you to find the error.
+Important Functions of Datalink Layer:
+Framing which divides the data from Network layer into frames.
+Allows you to add header to the frame to define the physical address of the source and the destination machine
+Adds Logical addresses of the sender and receivers
+It is also responsible for the sourcing process to the destination process delivery of the entire message.
+It also offers a system for error control in which it detects retransmits damage or lost frames.
+Datalink layer also provides a mechanism to transmit data over independent networks which are linked together.
+
+* Transport Layer:
+The transport layer builds on the network layer to provide data transport from a process on a source machine to a process on a destination machine. It is hosted using single or multiple networks, and also maintains the quality of service functions.
+
+It determines how much data should be sent where and at what rate. This layer builds on the message which are received from the application layer. It helps ensure that data units are delivered error-free and in sequence.
+
+Transport layer helps you to control the reliability of a link through flow control, error control, and segmentation or desegmentation.
+
+The transport layer also offers an acknowledgment of the successful data transmission and sends the next data in case no errors occurred. TCP is the best-known example of the transport layer.
+
+Important functions of Transport Layers:
+It divides the message received from the session layer into segments and numbers them to make a sequence.
+Transport layer makes sure that the message is delivered to the correct process on the destination machine.
+It also makes sure that the entire message arrives without any error else it should be retransmitted.
+Network Layer:
+The network layer provides the functional and procedural means of transferring variable length data sequences from one node to another connected in "different networks".
+
+Message delivery at the network layer does not give any guaranteed to be reliable network layer protocol.
+
+Layer-management protocols that belong to the network layer are:
+
+routing protocols
+multicast group management
+network-layer address assignment.
+
+*Session Layer
+Session Layer controls the dialogues between computers. It helps you to establish starting and terminating the connections between the local and remote application.
+
+This layer request for a logical connection which should be established on end user's requirement. This layer handles all the important log-on or password validation.
+
+Session layer offers services like dialog discipline, which can be duplex or half-duplex. It is mostly implemented in application environments that use remote procedure calls.
+
+Important function of Session Layer:
+It establishes, maintains, and ends a session.
+Session layer enables two systems to enter into a dialog
+It also allows a process to add a checkpoint to steam of data.
+Presentation Layer
+Presentation layer allows you to define the form in which the data is to exchange between the two communicating entities. It also helps you to handles data compression and data encryption.
+
+This layer transforms data into the form which is accepted by the application. It also formats and encrypts data which should be sent across all the networks. This layer is also known as a syntax layer.
+
+The function of Presentation Layers:
+Character code translation from ASCII to EBCDIC.
+Data compression: Allows to reduce the number of bits that needs to be transmitted on the network.
+Data encryption: Helps you to encrypt data for security purposes — for example, password encryption.
+It provides a user interface and support for services like email and file transfer.
+
+* Application Layer
+Application layer interacts with an application program, which is the highest level of OSI model. The application layer is the OSI layer, which is closest to the end-user. It means OSI application layer allows users to interact with other software application.
+
+Application layer interacts with software applications to implement a communicating component. The interpretation of data by the application program is always outside the scope of the OSI model.
+
+Example of the application layer is an application such as file transfer, email, remote login, etc.
+
+The function of the Application Layers are:
+Application-layer helps you to identify communication partners, determining resource availability, and synchronizing communication.
+It allows users to log on to a remote host
+This layer provides various e-mail services
+This application offers distributed database sources and access for global information about various objects and services.
+
+
+Protocols supported at various levels
+Layer	Name	Protocols
+Layer 7	Application	SMTP, HTTP, FTP, POP3, SNMP
+Layer 6	Presentation	MPEG, ASCH, SSL, TLS
+Layer 5	Session	NetBIOS, SAP
+Layer 4	Transport	TCP, UDP
+Layer 3	Network	IPV5, IPV6, ICMP, IPSEC, ARP, MPLS.
+Layer 2	Data Link	RAPA, PPP, Frame Relay, ATM, Fiber Cable, etc.
+Layer 1	Physical	RS232, 100BaseTX, ISDN, 11.
