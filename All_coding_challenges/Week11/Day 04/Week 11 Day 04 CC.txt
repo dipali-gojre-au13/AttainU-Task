@@ -1,0 +1,51 @@
+
+
+Q1. What are the key requirements of the distributed systems?
+
+-->
+A distributed system is a system in which components are located on different networked computers, which can communicate and coordinate their actions by passing messages to one another. The components interact with one another in order to achieve a common goal.
+Key characteristics of distributed systems are
+#Resource Sharing
+Resource sharing means that the existing resources in a distributed system can be accessed or remotely accessed across multiple computers in the system. Computers in distributed systems shares resources like hardware (disks and printers), software (files, windows and data objects) and data. Hardware resources are shared for reductions in cost and convenience. Data is shared for consistency and exchange of information.
+Resources are managed by a software module known as a resource manager. Every resource has its own management policies and methods.
+
+#Heterogeneity
+In distributed systems components can have variety and differences in Networks, Computer hardware, Operating systems, Programming languages and implementations by different developers.
+
+#Openness
+Openness is concerned with extensions and improvements of distributed systems. The distributed system must be open in terms of Hardware and Softwares. In order to make a distributed system open,
+1. A detailed and well-defined interface of components must be published.
+2. Should standardize the interfaces of components
+3. The new component must be easily integrated with existing components
+
+#Concurrency
+Concurrency is a property of a system representing the fact that multiple activities are executed at the same time. The concurrent execution of activities takes place in different components running on multiple machines as part of a distributed system. In addition, these activities may perform some kind of interactions among them. Concurrency reduces the latency and increases the throughput of the distributed system.
+
+#Scalability
+Scalability is mainly concerned about how the distributed system handles the growth as the number of users for the system increases. Mostly we scale the distributed system by adding more computers in the network. Components should not need to be changed when we scale the system. Components should be designed in such a way that it is scalable.
+
+#Fault Tolerance
+In a distributed system hardware, software, network anything can fail. The system must be designed in such a way that it is available all the time even after something has failed.
+
+#Transparency
+Distributed systems should be perceived by users and application programmers as a whole rather than as a collection of cooperating components. Transparency can be of various types like access, location, concurrency, replication, etc.
+
+
+Q2. Differentiate between SQL and NoSQL.
+
+-->
+There are a lot of databases used today in the industry. Some are SQL databases, some are NoSQL databases. The conventional database is SQL database system that uses tabular relational model to represent data and their relationship. The NoSQL database is the newer one database that provides a mechanism for storage and retrieval of data other than tabular relations model used in relational databases.
+
+Following is a list of differences between SQL and NoSQL database:
+
+Index	SQL	                                                                                                                                                                                                                                                                      NoSQL
+1)	Databases are categorized as Relational Database Management System (RDBMS).	                                                                  NoSQL databases are categorized as Non-relational or distributed database system.
+2)	SQL databases have fixed or static or predefined schema.	                                                				  NoSQL databases have dynamic schema.
+3)	SQL databases display data in form of tables so it is known as table-based database.					  NoSQL databases display data as collection of key-value pair, documents, graph databases or wide-column stores.
+4)	SQL databases are vertically scalable.	                                                                                				  NoSQL databases are horizontally scalable.
+5)	SQL databases use a powerful language "Structured Query Language" to define and manipulate the data.	                                  In NoSQL databases, collection of documents are used to query the data. It is also called unstructured query language. It varies from database to database.
+6)	SQL databases are best suited for complex queries.								  NoSQL databases are not so good for complex queries because these are not as powerful as SQL queries.
+7)	SQL databases are not best suited for hierarchical data storage.	                                                                                                  NoSQL databases are best suited for hierarchical data storage.
+8)	MySQL, Oracle, Sqlite, PostgreSQL and MS-SQL etc. are the example of SQL database.	                                                                  MongoDB, BigTable, Redis, RavenDB, Cassandra, Hbase, Neo4j, CouchDB etc. are the example of nosql database
+
+
