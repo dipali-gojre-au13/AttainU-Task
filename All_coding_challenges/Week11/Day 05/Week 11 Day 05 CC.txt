@@ -1,0 +1,38 @@
+
+
+Q1. What is CAP Theorem?
+-->
+The CAP theorem (also called Brewer’s theorem) states that a distributed database system can only guarantee two out of these three characteristics: Consistency, Availability, and Partition Tolerance.
+
+Consistency
+A system is said to be consistent if all nodes see the same data at the same time.
+
+Simply, if we perform a read operation on a consistent system, it should return the value of the most recent write operation. This means that, the read should cause all nodes to return the same data, i.e., the value of the most recent write.
+
+Availability
+Availability in a distributed system ensures that the system remains operational 100% of the time. Every request gets a (non-error) response regardless of the individual state of a node.
+
+Note: this does not guarantee that the response contains the most recent write.
+
+The figure on the left illustrates an “unavailable” system.
+
+Partition Tolerance
+This condition states that the system does not fail, regardless of if messages are dropped or delayed between nodes in a system.
+
+Partition tolerance has become more of a necessity than an option in distributed systems. It is made possible by sufficiently replicating records across combinations of nodes and networks.
+
+Q2. What is a load balancer? Why do we need that?
+-->
+Load balancing is defined as the methodical and efficient distribution of network or application traffic across multiple servers in a server farm. Each load balancer sits between client devices and backend servers, receiving and then distributing incoming requests to any available server capable of fulfilling them.
+
+A load balancer may be:
+
+A physical device, a virtualized instance running on specialized hardware or a software process.
+Incorporated into application delivery controllers (ADCs) designed to more broadly improve the performance and security of three-tier web and microservices-based applications, regardless of where they’re hosted.
+Able to leverage many possible load balancing algorithms, including round robin, server response time and the least connection method to distribute traffic in line with current requirements.
+
+Why is load balancing necessary?
+
+An ADC with load balancing capabilities helps IT departments ensure scalability and availability of services. Its advanced traffic management functionality can help a business steer requests more efficiently to the correct resources for each end user. An ADC offers many other functions (for example, encryption, authentication and web application firewalling) that can provide a single point of control for securing, managing and monitoring the many applications and services across environments and ensuring the best end-user experience.
+
+
