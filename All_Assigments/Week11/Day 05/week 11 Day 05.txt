@@ -1,0 +1,45 @@
+
+Q1. Design a photo sharing application like instagram. Explain in details all the things needed to design that app.
+-->
+
+This kind of application also has a feature like Twitter. In which a user can follow as many as users, a user wants to follow. This application has an interesting feature such as Story mode in which a user can update a day to day post which is available for 24 hours
+
+Now Instagram features are changing day by day which entertains the people and fills them with the excitement to use it more and more. According to the statistics provided by Google, among the Social Media sharing apps like Facebook, Snapchat, Twitter, and other apps Instagram has a top number of user’s live sharing the posts on a day to day basis.
+
+These days as social media is emerging day by day there are new applications in the queue which are making a good place in the market these days and growing at a good rate. Some of these apps are TikTok, Pinterest, etc. These are entertainment mobile apps which are videos and photos sharing apps like Instagram.
+
+The photography culture is the biggest and modern part of our society. To capture a high-quality picture and getting the moment saved with it.
+
+The popularity of Instagram among the users is because of the features which are creating a beautiful ambiance for its users in the application. The list of features is added to the App in the period of around 2017-18. Some of these features are:
+
+Stories Highlight: In this part of the application users can post their video stories and images so that other users can instantly watch the story on a regular basis.
+IGTV: This part of the app contains video stories of Users and is day by day becoming YouTube’s Rival.
+Explore: This feature in the app enables a user to view other users, non private business profile. They can also search the users by their names and “Instagram ID”.
+
+
+Now creating an app like Instagram from scratch there are many things you need to know about it.
+
+Authorization
+Editing Profile
+Timeline
+Posting Pictures
+Social Features
+Messenger
+Location
+Notification
+Search for user
+Picture Customizations
+Giving attention to the interface of an app may help to make it better. Let’s get started with each and every factor listed above.
+
+Authorization: It’s a very common feature in every application which is a user-oriented application. A two-way authorization process is the best way to grant a user authorization
+Creating a new user account by providing a valid Phone Number or an Email.
+Signing in or Logging in using a linked social media account.
+Editing Profile: In this feature, a user has to provide valid information about himself like his social media account details his full name and his email. A user can customize or change their profile information like profile picture or profile bio.
+Timeline: A timeline is a feature in which the user shows his post to other users for them to view.
+Posting Pictures: This feature allows or enables a user to upload and post pictures which will be shown on the profile.
+Social Features: In this feature, all the other social media accounts are linked to the app in which you have the feature to share your stuff on other social media accounts also at the same time you share on the app.
+Messenger: This feature allows the user to send text and media over the application through the internet itself.
+Location: This feature allows the user to tag the image to a location and also determine the current location of the user.
+Notification: User gets Push Notification every time there is a new update or when someone posts a picture.
+Search: In this feature, the user can search another user with his username or by their full name. The user can also search for tags as this feature is new and trending in both Instagram and Twitter.
+Picture Notification: Features like this are available in all the media related application, which allows you to edit your picture with filters and also to crop them in the application itself. You don’t need to have another app for editing and cropping pictures.
